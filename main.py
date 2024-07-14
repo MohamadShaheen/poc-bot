@@ -1,10 +1,6 @@
-import os
 from bot_commands import *
-from dotenv import load_dotenv
 from telegram.ext import ApplicationBuilder, CommandHandler
 
-
-load_dotenv()
 
 bot_token = os.getenv('BOT_TOKEN')
 
@@ -17,8 +13,9 @@ def main():
     application = ApplicationBuilder().token(bot_token).build()
 
     application.add_handler(CommandHandler('start', start_command))
-    application.add_handler(CommandHandler('help', help_command))
+    application.add_handler(CommandHandler('api', api_command))
     application.add_handler(CommandHandler('test', test_command))
+    application.add_handler(CommandHandler('help', help_command))
 
     application.run_polling()
 
