@@ -14,6 +14,7 @@ def main():
 
     application.add_handler(CommandHandler('start', start_command))
     application.add_handler(CommandHandler('api', api_command))
+    application.add_handler(CommandHandler('insert', insert_command))
     application.add_handler(CommandHandler('test', test_command))
     application.add_handler(CommandHandler('help', help_command))
 
