@@ -25,7 +25,7 @@ async def api_command(update: Update, context: CallbackContext) -> None:
 async def insert_command(update: Update, context: CallbackContext) -> None:
     try:
         random_sentence = lorem.sentence()
-        response = requests.post(f'{server_url}telegram-bot/string/?string={random_sentence.replace(' ', '%20')}')
+        response = requests.post(f'{server_url}telegram-bot/string/', data={'string': random_sentence})
         await update.message.reply_text(response.text)
     except Exception as e:
         await update.message.reply_text('No such endpoint exists!')
